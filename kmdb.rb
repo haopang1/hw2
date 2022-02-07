@@ -81,7 +81,7 @@ Role.destroy_all;
     # 1 create Movies model - code "rails generate model Movies" in TERMINAL; Update app/model/movie.rb; 
     # 2 create People model - code "rails generate model People" in TERMINAL; Update app/model/person.rb
     # 3 create Roles model - code "rails generate model Roles" in TERMINAL; Update app/model/role.rb; 
-#run it to update my model setting with command "rails db:migrate"
+    # run it to update my model setting with command "rails db:migrate"
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
@@ -168,7 +168,7 @@ puts ""
 # TODO!
 movies = Movie.all
 for movie in movies 
-    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{movie.person.name}"
+    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   "
 end 
 # Prints a header for the cast output
 puts ""
@@ -178,3 +178,4 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
