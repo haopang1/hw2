@@ -87,11 +87,77 @@ Role.destroy_all;
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-values = { title: "Batman Begins", year_released: "2005, rated: "PG-13", person_id: 1 }
-m1 = Movie.new(values)
-m1.save
+# Insert movie date 
+    values = { title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: 1 }
+    m1 = Movie.new(values)
+    m1.save
+    # puts Movie.all.count
+    values = { title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: 1 }
+    m2 = Movie.new(values)
+    m2.save
+    # puts Movie.all.count
+    values = { title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: 1 }
+    m3 = Movie.new(values)
+    m3.save
+    # puts Movie.all.count
+    # testmovie=Movie.where({year_released: 2012})
+    # puts testmovie.inspect 
 
-puts Movie.all.count
+# Insert Person data
+
+    person1 = Person.new
+    person1.name = "Christopher Nolan"
+    person1.save
+
+    person2 = Person.new
+    person2.name = "Christian Bale"
+    person2.save
+
+    person3 = Person.new
+    person3.name = "Michael Caine"
+    person3.save
+
+    person4 = Person.new
+    person4.name = "Liam Neeson"
+    person4.save
+
+    person5 = Person.new
+    person5.name = "Katie Holmes"
+    person5.save
+
+    person6 = Person.new
+    person6.name = "Gary Oldman"
+    person6.save
+
+    person7 = Person.new
+    person7.name = "Heath Ledger"
+    person7.save
+
+    person8 = Person.new
+    person8.name = "Aaron Eckhart"
+    person8.save
+
+    person9 = Person.new
+    person9.name = "Maggie Gyllenhaal"
+    person9.save
+
+    person10 = Person.new
+    person10.name = "Tom Hardy"
+    person10.save
+
+    person11 = Person.new
+    person11.name = "Joseph Gordon-Levitt"
+    person11.save
+
+    person12 = Person.new
+    person12.name = "Anne Hathaway"
+    person12.save
+
+# puts Person.all.count
+    puts Person.all.inspect
+
+# Insert Roles data
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -101,6 +167,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
+movies = Movie.all
+for movie in movies 
+    director = Person.where({id: movie.person_id})
+    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{director.name}"
+end 
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
