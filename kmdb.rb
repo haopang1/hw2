@@ -71,16 +71,17 @@
 # TODO!
 
 Movie.destroy_all;
-People.destroy_all;
-Roles.destroy_all;
+Person.destroy_all;
+Role.destroy_all;
+
+puts Movie.all.count
+
 
 # Generate models and tables, according to the domain model
 # TODO!
     # 1 create Movies model - code "rails generate model Movies" in TERMINAL; Update app/model/movie.rb
     # 2 create People model - code "rails generate model People" in TERMINAL; Update app/model/person.rb
     # 3 create Roles model - code "rails generate model Roles" in TERMINAL; Update app/model/role.rb; 
-
-
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.

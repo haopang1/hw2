@@ -1,3 +1,3 @@
 class Person < ApplicationRecord
-    has_many :Roles
+    has_many :roles
 end
