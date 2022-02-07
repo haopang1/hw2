@@ -159,6 +159,28 @@ Role.destroy_all;
     # puts Movie.all.count
     # testmovie=Movie.where({year_released: 2012})
     # puts testmovie.inspect 
+    # puts m1.id
+    # puts Movie.all.inspect 
+
+    r1 = Role.new
+    r1.movie_id = m1.id
+    r1.person_id =person2.id
+    r1.character_name="Bruce Wayne"
+    r1.save
+
+
+
+    puts Role.all.count
+    puts Role.all.inspect 
+
+
+
+    
+# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 2, "Bruce Wayne");
+# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 3, "Alfred");
+# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 4, "Ra's Al Ghul");
+# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 5, "Rachel Dawes");
+# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 6, "Commissioner Gordon");
 
 # Insert Roles data
 
