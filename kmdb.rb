@@ -80,8 +80,7 @@ Roles.destory_all;
     # 2 create People model - code "rails generate model People" in TERMINAL; add "have_many: Roles" to app/model/person.rb
     # 3 create Roles model - code rails generate model Roles in TERMINAL
 
-
-put Movies.count_all
+put Movie.all.count
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
