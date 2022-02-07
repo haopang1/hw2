@@ -87,22 +87,6 @@ Role.destroy_all;
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-# Insert movie date 
-    values = { title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: 1 }
-    m1 = Movie.new(values)
-    m1.save
-    # puts Movie.all.count
-    values = { title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: 1 }
-    m2 = Movie.new(values)
-    m2.save
-    # puts Movie.all.count
-    values = { title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: 1 }
-    m3 = Movie.new(values)
-    m3.save
-    # puts Movie.all.count
-    # testmovie=Movie.where({year_released: 2012})
-    # puts testmovie.inspect 
-
 # Insert Person data
 
     person1 = Person.new
@@ -154,7 +138,26 @@ Role.destroy_all;
     person12.save
 
     # puts Person.all.count
-    # puts Person.all.inspect
+    puts Person.all.inspect
+    puts director= Person.where({name: "Christopher Nolan"})
+    puts director_id = director.read_attribute(:id)
+    puts director_id
+
+# Insert movie date 
+    values = { title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: director_id }
+    m1 = Movie.new(values)
+    m1.save
+    # puts Movie.all.count
+    values = { title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: director_id }
+    m2 = Movie.new(values)
+    m2.save
+    # puts Movie.all.count
+    values = { title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: director_id }
+    m3 = Movie.new(values)
+    m3.save
+     puts Movie.all.count
+# testmovie=Movie.where({year_released: 2012})
+# puts testmovie.inspect 
 
 # Insert Roles data
 
@@ -166,10 +169,13 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+    puts Movie.all.inspect
+
 movies = Movie.all
 for movie in movies 
-    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   "
+    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{movie.director.name} "
 end 
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
