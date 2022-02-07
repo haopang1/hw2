@@ -74,17 +74,24 @@ Movie.destroy_all;
 Person.destroy_all;
 Role.destroy_all;
 
-puts Movie.all.count
+#puts Movie.all.count
 
 # Generate models and tables, according to the domain model
 # TODO!
-    # 1 create Movies model - code "rails generate model Movies" in TERMINAL; Update app/model/movie.rb
+    # 1 create Movies model - code "rails generate model Movies" in TERMINAL; Update app/model/movie.rb; 
     # 2 create People model - code "rails generate model People" in TERMINAL; Update app/model/person.rb
     # 3 create Roles model - code "rails generate model Roles" in TERMINAL; Update app/model/role.rb; 
+#run it to update my model setting with command "rails db:migrate"
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+values = { title: "Batman Begins", year_released: "2005, rated: "PG-13", person_id: 1 }
+m1 = Movie.new(values)
+m1.save
+
+puts Movie.all.count
 
 # Prints a header for the movies output
 puts "Movies"
