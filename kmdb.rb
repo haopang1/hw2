@@ -168,7 +168,29 @@ Role.destroy_all;
     r1.character_name="Bruce Wayne"
     r1.save
 
+    r2 = Role.new
+    r2.movie_id = m1.id
+    r2.person_id =person3.id
+    r2.character_name="Alfred"
+    r2.save
 
+    r3 = Role.new
+    r3.movie_id = m1.id
+    r3.person_id =person4.id
+    r3.character_name="Ra's Al Ghul"
+    r3.save
+
+    r4 = Role.new
+    r4.movie_id = m1.id
+    r4.person_id =person5.id
+    r4.character_name="Rachel Dawes"
+    r4.save
+
+    r5 = Role.new
+    r5.movie_id = m1.id
+    r5.person_id =person6.id
+    r5.character_name="Commissioner Gordon"
+    r5.save
 
     puts Role.all.count
     puts Role.all.inspect 
