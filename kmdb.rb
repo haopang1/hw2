@@ -138,26 +138,27 @@ Role.destroy_all;
     person12.save
 
     # puts Person.all.count
-    puts Person.all.inspect
-    puts director= Person.where({name: "Christopher Nolan"})
-    puts director_id = director.read_attribute(:id)
-    puts director_id
+    # puts Person.all.inspect
+    # puts director= Person.where({name: "Christopher Nolan"})[0] # need to pick up one row otherwise get data format problem 
+    # puts director.id
+    # puts director.read_attribute(:id)
+    # puts person1.id
 
 # Insert movie date 
-    values = { title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: director_id }
+    values = { title: "Batman Begins", year_released: 2005, rated: "PG-13", person_id: person1.id }
     m1 = Movie.new(values)
     m1.save
     # puts Movie.all.count
-    values = { title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: director_id }
+    values = { title: "The Dark Knight", year_released: 2008, rated: "PG-13", person_id: person1.id }
     m2 = Movie.new(values)
     m2.save
     # puts Movie.all.count
-    values = { title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: director_id }
+    values = { title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", person_id: person1.id}
     m3 = Movie.new(values)
     m3.save
-     puts Movie.all.count
-# testmovie=Movie.where({year_released: 2012})
-# puts testmovie.inspect 
+    # puts Movie.all.count
+    # testmovie=Movie.where({year_released: 2012})
+    # puts testmovie.inspect 
 
 # Insert Roles data
 
@@ -169,12 +170,13 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
-    puts Movie.all.inspect
+    # puts Movie.all.inspect
 
-movies = Movie.all
-for movie in movies 
-    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{movie.director.name} "
-end 
+    movies = Movie.all
+    for movie in movies 
+        director = Person.where({id: movie.person_id})[0]
+        puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{director.read_attribute(:name)}"
+    end 
 
 # Prints a header for the cast output
 puts ""
