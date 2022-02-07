@@ -76,7 +76,6 @@ Role.destroy_all;
 
 puts Movie.all.count
 
-
 # Generate models and tables, according to the domain model
 # TODO!
     # 1 create Movies model - code "rails generate model Movies" in TERMINAL; Update app/model/movie.rb
