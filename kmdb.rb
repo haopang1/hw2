@@ -162,6 +162,7 @@ Role.destroy_all;
     # puts m1.id
     # puts Movie.all.inspect 
 
+# Insert Role date
     r1 = Role.new
     r1.movie_id = m1.id
     r1.person_id =person2.id
@@ -192,20 +193,71 @@ Role.destroy_all;
     r5.character_name="Commissioner Gordon"
     r5.save
 
-    puts Role.all.count
-    puts Role.all.inspect 
+    r6 = Role.new
+    r6.movie_id = m2.id
+    r6.person_id =person2.id
+    r6.character_name="Bruce Wayne"
+    r6.save
+
+    r7 = Role.new
+    r7.movie_id = m2.id
+    r7.person_id =person7.id
+    r7.character_name="Joker"
+    r7.save
+
+    r8 = Role.new
+    r8.movie_id = m2.id
+    r8.person_id =person8.id
+    r8.character_name="Harvey Dent"
+    r8.save
+
+    r9 = Role.new
+    r9.movie_id = m2.id
+    r9.person_id =person3.id
+    r9.character_name="Alfred"
+    r9.save
+
+    r10 = Role.new
+    r10.movie_id = m2.id
+    r10.person_id =person9.id
+    r10.character_name="Rachel Dawes"
+    r10.save
+
+    r11 = Role.new
+    r11.movie_id = m3.id
+    r11.person_id =person2.id
+    r11.character_name="Bruce Wayne"
+    r11.save
+
+    r12 = Role.new
+    r12.movie_id = m3.id
+    r12.person_id =person6.id
+    r12.character_name="Commissioner Gordon"
+    r12.save
+
+    r13 = Role.new
+    r13.movie_id = m3.id
+    r13.person_id =person10.id
+    r13.character_name="Bane"
+    r13.save
+
+    r14 = Role.new
+    r14.movie_id = m3.id
+    r14.person_id =person11.id
+    r14.character_name="John Blake"
+    r14.save
+
+    r15 = Role.new
+    r15.movie_id = m3.id
+    r15.person_id =person12.id
+    r15.character_name="Selina Kyle"
+    r15.save
 
 
+    # puts Role.all.count
+    # puts Role.all.inspect 
 
-    
-# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 2, "Bruce Wayne");
-# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 3, "Alfred");
-# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 4, "Ra's Al Ghul");
-# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 5, "Rachel Dawes");
-# INSERT INTO roles (movie_id, person_id, character_name) VALUES (1, 6, "Commissioner Gordon");
-
-# Insert Roles data
-
+# complete insert date into table/models
 
 # Prints a header for the movies output
 puts "Movies"
@@ -216,11 +268,11 @@ puts ""
 # TODO!
     # puts Movie.all.inspect
 
-    movies = Movie.all
-    for movie in movies 
-        director = Person.where({id: movie.person_id})[0]
-        puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{director.read_attribute(:name)}"
-    end 
+movies = Movie.all
+for movie in movies 
+    director = Person.where({id: movie.person_id})[0]
+    puts "#{movie.title}  #{movie.year_released}     #{movie.rated}   #{director.read_attribute(:name)}"
+end 
 
 # Prints a header for the cast output
 puts ""
@@ -231,3 +283,7 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
+roles = Role.all
+for role in roles 
+    puts "#{role.movie.title}     #{role.person.name}     #{role.character_name} "
+end 
